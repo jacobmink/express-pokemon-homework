@@ -3,6 +3,11 @@
     font-family: 'Bubblegum Sans', cursive;
 }
 
+.pokeach{
+    border-bottom: 2px solid darkcyan;
+    font-family: 'Bubblegum Sans', cursive;
+}
+
 body{
     background-image: url('/pokeback.png')
 }
