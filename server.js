@@ -20,6 +20,13 @@ app.get('/pokemon',(req,res)=>{
     // res.send(JSON.stringify(Pokemon));
 });
 
+// show
+app.get('/pokemon/:id',(req,res)=>{
+    res.render('show.ejs', {
+        pokemon: Pokemon[req.params.id]
+    })
+})
+
 
 app.listen(3000, ()=>{
     console.log('Server running');
