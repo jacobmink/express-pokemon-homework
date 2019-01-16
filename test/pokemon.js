@@ -12,7 +12,7 @@ describe('RESTful pokemon routes', function(){
             .expect((response)=>{
                 const $ = cheerio.load(response.text);
                 $('.pokemon li:first-child').text().should.be.eq('Bulbasaur')
-                $('.pokemon li:last-child').text().should.be.eq('Wartortle');
+                $('.pokemon li:last-of-type').text().should.be.eq('Wartortle');
             })
             .end(done);
     })

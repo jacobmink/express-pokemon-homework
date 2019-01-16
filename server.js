@@ -17,3 +17,5 @@ app.use('/pokemon', pokemonController);
 app.listen(port, ()=>{
     console.log(new Date());
 });
+
+module.exports = app;
