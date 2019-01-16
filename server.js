@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
 
+
+
 const Pokemon = require('./models/pokemon.js');
 
+app.use(express.static('public'));
 
 app.get('/',(req,res)=>{
     res.send('YOU ARE HERE');
@@ -10,7 +13,11 @@ app.get('/',(req,res)=>{
 
 // index
 app.get('/pokemon',(req,res)=>{
-    res.send(JSON.stringify(Pokemon));
+
+    res.render('index.ejs', {
+        pokemon: Pokemon
+    })
+    // res.send(JSON.stringify(Pokemon));
 });
 
 
