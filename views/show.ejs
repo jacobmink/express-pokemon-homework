@@ -8,7 +8,9 @@
 </head>
 <body>
     <h1>This is the Pokemon you seek</h1>
-    <h2 class='pokeach'><%= pokemon.name %></h2> <br>
+    <h2 class='pokeach'><%= pokemon.name %> <a href="/pokemon"> <button type="submit">Back to PokeDeck</button></a> 
+        <form action="/pokemon/<%= index %>?_method=DELETE" method="POST">
+        <button type="submit">Kill this cute little Pokemon</button></form></h2> <br>
     <img src="<%= pokemon.img %>" alt="">
      <br>
 </body>

@@ -1,33 +1,19 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+const pokemonController = require('./controllers/pokemonController');
+const methodOverride = require('method-override');
 
-
-
-const Pokemon = require('./models/pokemon.js');
 
 app.use(express.static('public'));
+app.use(methodOverride('_method'));
+app.use(bodyParser.urlencoded({extended:false}));
 
-app.get('/',(req,res)=>{
-    res.send('YOU ARE HERE');
+const port = 3000;
+
+app.use('/pokemon', pokemonController);
+ 
+
+app.listen(port, ()=>{
+    console.log(new Date());
 });
-
-// index
-app.get('/pokemon',(req,res)=>{
-
-    res.render('index.ejs', {
-        pokemon: Pokemon
-    })
-    // res.send(JSON.stringify(Pokemon));
-});
-
-// show
-app.get('/pokemon/:id',(req,res)=>{
-    res.render('show.ejs', {
-        pokemon: Pokemon[req.params.id]
-    })
-})
-
-
-app.listen(3000, ()=>{
-    console.log('Server running');
-})
